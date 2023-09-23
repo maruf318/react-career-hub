@@ -20,7 +20,7 @@ const FeaturedJobs = () => {
           Explore thousands of job opportunities with all the information you
           need. Its your future
         </p>
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-2 gap-6 md:my-8">
           {jobs.slice(0, dataLength).map((job) => (
             <Job key={job.id} job={job}></Job>
           ))}
@@ -28,7 +28,7 @@ const FeaturedJobs = () => {
         <div className={dataLength === jobs.length ? "hidden" : ""}>
           <button
             onClick={() => setDataLength(jobs.length)}
-            className="btn btn-primary"
+            className="btn my-4 btn-primary bg-violet-900 text-white"
           >
             Show All
           </button>

@@ -18,9 +18,9 @@ const Job = ({ job }) => {
           <img src={logo} alt="Shoes" />
         </figure>
         <div className="card-body">
-          <h2 className="card-title">{job_title}</h2>
-          <p>{company_name}</p>
-          <div>
+          <h2 className="card-title ">{job_title}</h2>
+          <p className="self-start">{company_name}</p>
+          <div className="self-start">
             <button className="px-5 py-2 font-extrabold border rounded border-[#7E90FE] mr-4 text-[#7E90FE]">
               {remote_or_onsite}
             </button>

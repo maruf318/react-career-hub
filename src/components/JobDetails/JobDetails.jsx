@@ -1,4 +1,6 @@
 import { useLoaderData, useParams } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import {
   IoLogoEuro,
   IoMailOutline,
@@ -6,12 +8,17 @@ import {
   IoCallOutline,
   IoLocationOutline,
 } from "react-icons/io5";
+import { saveJobApplication } from "../../utility/localstorage";
 const JobDetails = () => {
   const jobs = useLoaderData();
   const { id } = useParams();
   const intId = parseInt(id);
   const job = jobs.find((job) => job.id === intId);
-  console.log(intId, job);
+  // console.log(intId, job);
+  const handleApplyJob = () => {
+    saveJobApplication(intId);
+    toast("You have applied successfully !");
+  };
 
   return (
     <div>
@@ -81,9 +88,15 @@ const JobDetails = () => {
               {job.contact_information.address}
             </p>
           </div>
-          <button className="bt btn-primary w-full py-4">Apply Now</button>
+          <button
+            onClick={handleApplyJob}
+            className="bt btn-primary w-full py-4"
+          >
+            Apply Now
+          </button>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };
