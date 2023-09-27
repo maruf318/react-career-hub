@@ -9,6 +9,7 @@ import {
   IoLocationOutline,
 } from "react-icons/io5";
 import { saveJobApplication } from "../../utility/localstorage";
+import { Helmet } from "react-helmet-async";
 const JobDetails = () => {
   const jobs = useLoaderData();
   const { id } = useParams();
@@ -22,6 +23,9 @@ const JobDetails = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Job Details: {id}</title>
+      </Helmet>
       <h2 className="font-bold text-3xl my-4">
         Job details of: {job.job_title}
       </h2>
